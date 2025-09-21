@@ -70,21 +70,81 @@ class Bruch
         }
     }
 
-    static ggtVonNennern(bruch1, bruch2) 
+    static ggtVonNennern(zaehler, nenner) 
     {
-        let nenner1 = bruch1.nenner;
-        let nenner2 = bruch2.nenner;
-        while (nenner2 !== 0) 
+        while (nenner !== 0) 
         {
-            [nenner1, nenner2] = [nenner2, nenner1 % nenner2];
+            [zaehler, nenner] = [nenner, zaehler % nenner];
         }
-        return Math.abs(nenner1);
+        return Math.abs(zaehler);
     }
 
     static kgv(bruch1, bruch2)
     {
         let nenner1 = bruch1.nenner;
         let nenner2 = bruch2.nenner;
-        return Math.abs(nenner1 * nenner2) / Bruch.ggtVonNennern(bruch1, bruch2);
+        return Math.abs(nenner1 * nenner2) / Bruch.ggtVonNennern(nenner1, nenner2);
     }
+
+    gemischteZahl2UnechterBruch()
+    {
+        return {
+                zaehler: this.ganz * this.nenner + this.zaehler,
+                nenner: this.nenner
+                };
+    }
+
+    static addition(bruch1, bruch2)
+    {
+        const b1 = bruch1.gemischteZahl2UnechterBruch();
+        const b2 = bruch2.gemischteZahl2UnechterBruch();
+
+        const gemeinsamerNenner = Bruch.kgv(bruch1, bruch2);
+
+        const neuerZaehler1 = b1.zaehler * (gemeinsamerNenner / b1.nenner);
+        const neuerZaehler2 = b2.zaehler * (gemeinsamerNenner / b2.nenner);
+
+        const addierterZaehler = neuerZaehler1 + neuerZaehler2;
+
+        // Kürzen
+        const ggt = Bruch.ggtVonNennern(addierterZaehler, gemeinsamerNenner);
+        const gekuerzterZaehler = addierterZaehler / ggt;
+        const gekuerzterNenner = gemeinsamerNenner / ggt;
+
+        // In gemischte Zahl umwandeln
+        const neu_ganz = Math.floor(gekuerzterZaehler / gekuerzterNenner);
+        const neu_zaehler = gekuerzterZaehler % gekuerzterNenner;
+        return new Bruch(neu_ganz, neu_zaehler, gekuerzterNenner);
+    }
+
+    bruch2string()
+    {
+        if (this.ganz !== 0 && this.zaehler !== 0)
+        {
+            return `${this.ganz} ${this.zaehler}/${this.nenner}`;
+        }
+        if (this.ganz !== 0)
+        {
+            return `${this.ganz}`;
+        }
+        if (this.zaehler !== 0)
+        {
+            return `${this.zaehler}/${this.nenner}`;
+        }
+        return "0";
+    }
+}
+
+try 
+{
+    const eingabe1 = "3 3/4";
+    const eingabe2 = "4 5/7";
+    const bruch1 = Bruch.string2bruch(eingabe1);
+    const bruch2 = Bruch.string2bruch(eingabe2);
+    const summe = Bruch.addition(bruch1, bruch2);
+    console.log(`${eingabe1} + ${eingabe2} = ${summe.bruch2string()}`);
+} 
+catch (e) 
+{
+    console.error(e.message);
 }
