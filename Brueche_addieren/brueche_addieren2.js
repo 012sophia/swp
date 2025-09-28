@@ -2,12 +2,24 @@ class Bruch
 {
     constructor(ganz, zaehler, nenner)
     {
-        this.ganz = ganz;
-        this.zaehler = zaehler;
-        this.nenner = nenner;
+        const unechterZaehler = ganz * nenner + zaehler;
+        const ggt = Bruch.ggt(Math.abs(unechterZaehler), nenner);
+
+        const gekZaehler = unechterZaehler / ggt;
+        const gekNenner = nenner / ggt;
+
+        this.ganz = Math.floor(gekZaehler / gekNenner);
+        this.zaehler = gekZaehler % gekNenner;
+        this.nenner = gekNenner;
     }
 
-    static string2bruch(bruch)
+    static ggt(a, b)
+    {
+        while (b !== 0) [a, b] = [b, a % b];
+        return a;
+    }
+
+    static fromString(bruch)
     {
         const splitter = bruch.trim().split(" ");
         if (splitter.length === 2)
@@ -70,54 +82,14 @@ class Bruch
         }
     }
 
-    static ggtVonNennern(zaehler, nenner) 
+    addition(other)
     {
-        while (nenner !== 0) 
-        {
-            [zaehler, nenner] = [nenner, zaehler % nenner];
-        }
-        return Math.abs(zaehler);
+        const z1 = this.ganz * this.nenner + this.zaehler;
+        const z2 = other.ganz * other.nenner + other.zaehler;
+        return new Bruch(0, z1 * other.nenner + z2 * this.nenner, this.nenner * other.nenner);
     }
 
-    static kgv(bruch1, bruch2)
-    {
-        let nenner1 = bruch1.nenner;
-        let nenner2 = bruch2.nenner;
-        return Math.abs(nenner1 * nenner2) / Bruch.ggtVonNennern(nenner1, nenner2);
-    }
-
-    gemischteZahl2UnechterBruch()
-    {
-        return {
-                zaehler: this.ganz * this.nenner + this.zaehler,
-                nenner: this.nenner
-                };
-    }
-
-    static addition(bruch1, bruch2)
-    {
-        const b1 = bruch1.gemischteZahl2UnechterBruch();
-        const b2 = bruch2.gemischteZahl2UnechterBruch();
-
-        const gemeinsamerNenner = Bruch.kgv(bruch1, bruch2);
-
-        const neuerZaehler1 = b1.zaehler * (gemeinsamerNenner / b1.nenner);
-        const neuerZaehler2 = b2.zaehler * (gemeinsamerNenner / b2.nenner);
-
-        const addierterZaehler = neuerZaehler1 + neuerZaehler2;
-
-        // Kürzen
-        const ggt = Bruch.ggtVonNennern(addierterZaehler, gemeinsamerNenner);
-        const gekuerzterZaehler = addierterZaehler / ggt;
-        const gekuerzterNenner = gemeinsamerNenner / ggt;
-
-        // In gemischte Zahl umwandeln
-        const neu_ganz = Math.floor(gekuerzterZaehler / gekuerzterNenner);
-        const neu_zaehler = gekuerzterZaehler % gekuerzterNenner;
-        return new Bruch(neu_ganz, neu_zaehler, gekuerzterNenner);
-    }
-
-    bruch2string()
+    toString()
     {
         if (this.ganz !== 0 && this.zaehler !== 0)
         {
@@ -137,12 +109,10 @@ class Bruch
 
 try 
 {
-    const eingabe1 = "3 3/4";
-    const eingabe2 = "4 5/7";
-    const bruch1 = Bruch.string2bruch(eingabe1);
-    const bruch2 = Bruch.string2bruch(eingabe2);
-    const summe = Bruch.addition(bruch1, bruch2);
-    console.log(`${eingabe1} + ${eingabe2} = ${summe.bruch2string()}`);
+    const bruch1 = Bruch.fromString(process.argv[2]);
+    const bruch2 = Bruch.fromString(process.argv[3]);
+    const summe = bruch1.addition(bruch2);
+    console.log(`${bruch1.toString()} + ${bruch2.toString()} = ${summe.toString()}`);
 } 
 catch (e) 
 {
