@@ -42,7 +42,7 @@ class Bruch
             }
             return new Bruch(ganz, zaehler, nenner);   
         }
-        else if (splitter.length === 1)
+        if (splitter.length === 1)
         {
             const bruchsplitter = splitter[0].split("/");
             if (bruchsplitter.length === 2)
@@ -60,7 +60,7 @@ class Bruch
                 }
                 return new Bruch(ganz, zaehler, nenner);
             }
-            else if (bruchsplitter.length === 1)
+            if (bruchsplitter.length === 1)
             {
                 let ganz = Number(splitter[0]);
                 if (isNaN(ganz))
