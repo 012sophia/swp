@@ -1,5 +1,6 @@
 class Bruch
 {
+    //attribute=ganz..., zaehler..., nenner:number; 
     constructor(ganz, zaehler, nenner)
     {
         const unechterZaehler = ganz * nenner + zaehler;
@@ -19,7 +20,7 @@ class Bruch
         return a;
     }
 
-    static fromString(bruch)
+    static fromString(bruch)  //ohne this. ist static
     {
         const splitter = bruch.trim().split(" ");
         if (splitter.length === 2)
@@ -82,7 +83,7 @@ class Bruch
         }
     }
 
-    addition(other)
+    addition(other)//methode
     {
         const z1 = this.ganz * this.nenner + this.zaehler;
         const z2 = other.ganz * other.nenner + other.zaehler;
