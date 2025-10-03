@@ -39,3 +39,4 @@ Deno.test("ganze Zahlen addieren", () => {
   const bruch2 = Bruch.fromString("3");
   assertEquals(bruch1.addiere(bruch2).toString(), "5");
 });
+//testfälle von chatgpt
