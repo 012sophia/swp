@@ -1,0 +1,9 @@
+{
+    "tasks": {
+        "dev": "deno run --watch main.ts",
+        "datum": "date"
+    },
+    "imports": {
+        "@std/assert": "jsr:@std/assert@^1.0.15"
+    }
+}
