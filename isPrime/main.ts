@@ -4,7 +4,7 @@ export function isPrime(num: number): [boolean, string] {
             return [false, `${num} ist keine Primzahl, weil sie durch ${i} teilbar ist`];
         }
     }
-    return [true, `${num} is a prime number`];
+    return [true, `${num} ist eine Primzahl`];
 }
 
 for (let i = 1; i <= 20; i++) {
