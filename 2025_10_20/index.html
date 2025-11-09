@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    table {
+    border-collapse: collapse;
+    }
+    th, td {
+    border: 1px solid black;
+    padding: 5px 10px;
+    }
+    th {
+    background: rgb(224, 172, 206);
+    }
+    tr:nth-child(even) {
+    background: #83bb8b;
+    }
+    tr:nth-child(odd) {
+    background: #fffc98;
+    }
+</style>
 </head>
 <body>
     <h1>Wichtige HTML Tags</h1>
@@ -51,6 +69,44 @@
                     </ul>
                     Es gibt noch viele weitere Elemente, wie html, body, paragraph usw. <br>
                     Ich habe jetzt die mal ausgwählt, weil ich sie im schreiben von diesen Text benützt habe.
+                    <ul>
+                    <li>
+                        tabelle (table)<br>
+                        Erstellt eine Tabelle, die aus Zeilen (tr) und Zellen (td) besteht.
+                        <br><br>
+                        <table border="1">
+                        <tr>
+                            <th>Obst</th>
+                            <th>Menge</th>
+                        </tr>
+                        <tr>
+                            <td>Apfel</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>Birne</td>
+                            <td>2</td>
+                        </tr>
+                        </table>
+                    </li>
+                    </ul>
+                    <ul>
+                    <li>
+                        form / input<br>
+                        Erstellt ein Formular mit Eingabefeldern.
+                        <br><br>
+
+                        <form>
+                        Name: <input type="text" placeholder="Dein Name"><br><br>
+                        E-Mail: <input type="email" placeholder="musterman.maxQ@gmail.com"><br><br>
+                        <input type="submit" value="Senden">
+                        </form>
+                        form umschließt die Eingabefelder <br>
+                        input type="text" für normalen Text <br>
+                        input type="email" für E-Mail <br>
+                        input type="submit" zum Absenden
+                    </li>
+                    </ul>
                 <p>
             </section>
             <section>
