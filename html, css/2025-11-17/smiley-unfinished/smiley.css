@@ -1,0 +1,35 @@
+/* 8x8 pixel smiley using CSS Grid (reliable) */
+:root { --scale: 20; /* change size here */ }
+
+html,body{height:100%;margin:0}
+.smiley-wrap {
+  background: lightgrey; /* page background */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+
+.smiley {
+  display: grid;
+  grid-template-columns: repeat(8, var(--scale));
+  grid-template-rows: repeat(8, var(--scale));
+  gap: 0;
+  /* optional crisp scaling */
+  image-rendering: pixelated;
+  /* give a tiny border so element is visible on the page */
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.04);
+}
+
+/* each pixel */
+.smiley .pixel {
+  width: var(--scale);
+  height: var(--scale);
+  background: transparent; /* shows the wrapper's lightgrey */
+  box-sizing: border-box;
+}
+
+/* dark pixels */
+.smiley .pixel.on {
+  background: darkblue;
+}

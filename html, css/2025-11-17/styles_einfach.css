@@ -1,0 +1,48 @@
+body {
+background: linear-gradient(45deg, rgb(240, 188, 232), rgb(166, 187, 242), rgb(185, 174, 185));
+background-size: 300%;
+animation: rainbow 6s infinite alternate;
+
+@keyframes rainbow {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
+}
+  font-family: Georgia, sans-serif;
+}
+
+h1 {
+  color: darkblue;
+  text-align: center;
+}
+
+.box {
+    width: 20px;
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 100px;
+    padding-bottom: 10px;
+    padding-right: 100px;
+    background-color: rgb(143, 189, 226);
+    margin: 100px;
+}
+
+.flower {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: rgb(136, 196, 246); /* Mitte der Blume */
+  border-radius: 50%;
+  margin: 100px auto; /* Zentriert die Blume */
+}
+
+/* gemeinsame Eigenschaften aller Blütenblätter */
+.petal {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: pink;
+  border-radius: 50%;
+  top: 20px; /* Positioniert die Blütenblätter */
+  left: 20px;
+  transform-origin: 40px 100%; /* Drehpunkt an der Mitte unten */
+}
