@@ -1,13 +1,15 @@
 body {
-background: linear-gradient(45deg, rgb(240, 188, 232), rgb(166, 187, 242), rgb(185, 174, 185));
-background-size: 300%;
-animation: rainbow 6s infinite alternate;
+  background: linear-gradient(45deg, rgb(216, 147, 205), rgb(157, 181, 242), rgb(178, 170, 178));
+  background-size: 600% 600%;
+  animation: gradient 10s ease infinite;
 
-@keyframes rainbow {
-  0% { background-position: 0%; }
-  100% { background-position: 100%; }
+  font-family: Georgia, sans-serif; /* HIER gehört es hin */
 }
-  font-family: Georgia, sans-serif;
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 h1 {
