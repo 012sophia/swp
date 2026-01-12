@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Grid-Website</title>
+    <link rel="stylesheet" href="grid.css">
+    <style>
+        nav, header, main, aside, footer {
+            min-height: 50px;
+            padding: 20px;
+            font-size: 1.5em;
+        }
+    a[href$=".pdf"]::after {
+        content: " 📄";
+    }
+    a { color: red; text-decoration: none; }
+    a[href$=".pdf"] {color: blueviolet;}
+    p:not(section) { display:block;}
+
+    a[href$=".pdf"]:not([disabled]) { color: green; }
+
+    article > p {
+        color: orange;
+    }
+
+    .projekt:nth-child(3n) {
+  background-color: green;
+}
+
+.projekt:nth-child(even) img {
+  border: 2px solid blue;
+}
+
+.hauptinhalt:active {
+  background-color: red;       /* Farbe beim Klicken */
+  font-weight: bold; /* fett beim Klicken */
+}
+    </style>
+
+</head>
+<body>
+
+<div class="grid-container">
+    <div class="element"></div>
+    <header>Header</header>
+    <nav>Navigation
+        <a href="Home">Home</a>
+        <a href="Projekte">Projekte</a>
+        <a href="Kontakt">Kontakt</a>
+    </nav>
+    <main>Hauptinhalt</main>
+    <aside>Sidebar</aside>
+    <footer>
+        <p>© 2025 Max Mustermann. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2025 Mein Portfolio</p>
+    </footer>
+    <section class="hauptbereich">
+  <div class="linke-spalte">
+    <h2>Über mich</h2>
+    <p>Hier steht ein kurzer Text über dich.</p>
+  </div>
+
+  <div class="mittlere-spalte">
+    <h2>Projekte</h2>
+    <div class="projekt-galerie">
+        <div class="linke-box">
+            <div class="projekt">Projekt 1</div>
+            <div class="projekt">Projekt 3</div>
+        </div>
+        <div class="rechte-box">
+            <div class="projekt">Projekt 2</div>
+            <div class="projekt">Projekt 4</div>
+        <a href="datei.doc">DOC</a>
+        <a href="bericht.pdf" disabled>PDF 2</a>
+        </div>
+    </div>
+  </div>
+
+  <div class="rechte-spalte">
+    <h2>Kontakt</h2>
+    <p>E-Mail: beispiel@email.de</p>
+    <p>Telefon: 0123 456789</p>
+    <a href="beispiel.pdf" target="_blank">PDF öffnen</a>
+  </div>
+    </section>
+<p>🔹 Content: Der eigentliche Inhalt (Text, Bild, etc.)</p>
+<p>🔹 Padding: Innenabstand zwischen Inhalt und Rahmen</p>
+<p>🔹 Border: Rahmen um das Element</p>
+<p>🔹 Margin: Außenabstand zu anderen Elementen</p>
+
+<article>
+  <p>Direkter Paragraph</p>
+  <div>
+    <p>Verschachtelter Paragraph</p>
+  </div>
+</article>
+
+</div>
+
+</body>
+</html>

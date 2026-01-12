@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="übungen.css">
+    <style>
+    p:not(.text) {
+            color: blue;
+        }
+    #info {
+            color: red;
+        }
+    .text {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="#">über uns</a>
+            <a href="https://flukeout.github.io/">hilfe</a>
+            <a href="#">info</a>
+        </nav>
+        <div class="header">header</div>
+        <div class="boxes">
+            <div class="box">box1: nur pdf selecten</div>
+            <div class="box">box2: Probiere grid-template-columns: repeat(3, 1fr); statt festen Pixeln – was passiert?</div>
+            <div class="box">box3: boxen zum umdrehen, specialeffecte</div>
+        </div>
+        <div class="footer">footer</div>
+        <form action="/submit" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="gib email ein" required>
+        </form>
+        <form action="/submit" method="post">
+            <label for="text">text</label>
+            <input type="text" placeholder="gib text ein">
+        </form>
+        <form action="/submit" method="post">
+            <label for="password">passwort</label>
+            <input type="password" placeholder="gib passwort ein">
+        </form>
+        <form>
+            <input type="submit" value="Absenden">
+        </form>
+        <form action="/zielseite" method="post">
+            <input type="text" name="name" placeholder="Name">
+            <button type="submit">Absenden</button>
+        </form>
+    </div>
+</body>
+</html>

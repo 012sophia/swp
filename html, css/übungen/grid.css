@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: "header header header" "nav main aside" "footer footer footer";
+    grid-template-columns: auto 4fr 2fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+header { background-color: #4CAF50; color: white; grid-area: header; gap: 10px; }
+nav { background-color: #2196F3; color: white; grid-area: nav; gap: 10px; display: flex; flex-direction: column; }
+main { background-color: #f1f1f1; grid-area: main; gap: 10px; }
+aside { background-color: #ff9800; color: white; grid-area: aside; gap: 10px; }
+footer { background-color: #555; color: white; grid-area: footer; gap: 10px; font-size: 10px;}
+
+.hauptbereich {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* linke:mittlere:rechte Spalte */
+  gap: 20px; /* Abstand zwischen den Spalten */
+  padding: 20px;
+}
+
+/* Hintergrundfarben zum Testen */
+.linke-spalte {
+  background-color: #f0f8ff;
+  padding: 10px;
+}
+
+.mittlere-spalte {
+  background-color: #ffe4e1;
+  padding: 10px;
+}
+
+.rechte-spalte {
+  background-color: #f5f5dc;
+  padding: 10px;
+}
+
+.projekt-galerie {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px; /* Abstand zwischen den Projekten */
+}
+
+.linke-box, .rechte-box {
+    background-color: #d3d3d3;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.element {
+    width:20px;
+    height:20px;
+    background-color: #68b1d3;
+    border: 1px solid #555;
+    border-radius: 2px;
+    grid-column: 2 / 3;
+}
