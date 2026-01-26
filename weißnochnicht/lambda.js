@@ -29,3 +29,8 @@ console.log(output4);
 
 const output5 = input.sort((a,b) => a-b);
 console.log(output5);
+
+//umgekehrt
+//a.reverse (verändert 123 zu 321 permanent)
+//a.toReversed(gibt 321 zurück, ändert aber 123 nicht permanent)
+//das gleiche mit z.b sort
