@@ -1,0 +1,69 @@
+body {
+    place-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: #385899;
+    font-weight: bold;
+    padding: 30px; 
+    border: 30px solid #385899;
+    background-color: rgb(188, 223, 255);
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-around;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+}
+
+section {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #7ce4b2;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color:#389968
+}
+
+section table *{
+    color: rgb(4, 61, 37);
+    background-color: #389968;
+    border: 2px solid #195407;
+    text-align: center;
+    padding: 10px;
+}
+
+section table thead tr td{
+    background-color: rgb(152, 195, 169);
+}
+
+section table tr:nth-child(even) td{
+    background-color: rgb(152, 195, 169);
+}
+
+button:hover {
+    background-color: #195407;
+    border:  5px solid hsl(144, 42%, 35%)
+}
+
+button{
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2a2929;
+    background-color: #385899;
+    border: 5px solid hsl(237, 46%, 33%);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    transition: border 0.3s ease;
+}
