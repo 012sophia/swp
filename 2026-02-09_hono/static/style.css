@@ -1,5 +1,4 @@
 body {
-    place-items: center;
     font-family: 'Courier New', Courier, monospace;
     color: #385899;
     font-weight: bold;
@@ -13,9 +12,7 @@ body {
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: center;
-    align-content: space-around;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    align-items: center;
     gap: 20px;
     padding: 20px;
     height: 100vh;
