@@ -1,0 +1,11 @@
+{
+  "importMap": "import_map.json",
+  "tasks": {
+    "start": "deno run --allow-net --allow-read --allow-env main.ts"
+  },
+  "imports": {
+    "hono": "https://esm.sh/hono@3.1.7",
+    "hono/deno": "https://esm.sh/hono@3.1.7/deno",
+    "sqlite": "https://deno.land/x/sqlite@v3.9.1/mod.ts"
+  }
+}

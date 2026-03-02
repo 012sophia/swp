@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@db/sqlite": "jsr:@db/sqlite@^0.13.0",
+    "hono": "npm:hono@^4.12.3",
+    "hono/deno": "jsr:hono/deno",
+    "sqlite": "jsr:@db/sqlite"
+  }
+}
