@@ -1,7 +1,6 @@
-import { holeEssen, loescheEssen } from "./essen.ts";
+import { holeEssen, loescheEssen } from "./essen_und_zeit.ts";
 import ms from "ms";
 
-// Function to handle ms conversion
 function handleMsConversion() {
     const input = (document.getElementById("zeit-input") as HTMLInputElement).value;
     const output = document.getElementById("zeit-output");
@@ -22,7 +21,6 @@ function handleMsConversion() {
     }
 }
 
-// Function to format time
 function displayTime() {
     const fiveMinutesAgo = Date.now() - ms("5 minutes");
     const formattedTime = `vor ${ms(Date.now() - fiveMinutesAgo)}`;

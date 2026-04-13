@@ -9,7 +9,6 @@ export type MSeintrag = {
     in_ms: string;
 };
 
-// Komplexität mit encoder/decoder ist nur zur Demo für die Imports
 function createTabellen2Markup(daten: MSeintrag[]): string {
     const encoder = new TextEncoder();
     const bytes = daten.map((eintrag) =>
