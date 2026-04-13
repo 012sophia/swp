@@ -1,35 +1,40 @@
-import { holeEssen, holeZeit, loescheEssen, loescheZeit } from "./essen.ts"; // so ists ideal
-// import * as essensfunctions from "./essen.ts";  -> neues Objekt mit essensfunctions.holeEssen
-// import "./essen.ts"; --> es wird nur das Modul ausgeführt, aber keine Funktionen importiert
-import _ms from "npm:ms";
+import { holeEssen, loescheEssen } from "./essen.ts";
+import ms from "ms";
 
-type EssenGlobals = typeof globalThis & {
-    holeEssen: typeof holeEssen;
-    loescheEssen: typeof loescheEssen;
-};
+// Function to handle ms conversion
+function handleMsConversion() {
+    const input = (document.getElementById("zeit-input") as HTMLInputElement).value;
+    const output = document.getElementById("zeit-output");
 
-type MSGlobal = typeof globalThis & {
-    holeZeit: typeof holeZeit;
-    loescheZeit: typeof loescheZeit;
-};
+    if (!output) {
+        console.error("Output element not found");
+        return;
+    }
 
-const globals = globalThis as EssenGlobals;
-const msGlobals = globalThis as MSGlobal;
+    try {
+        const converted = ms(input);
+        output.textContent = converted
+            ? `${input} entspricht ${converted} ms`
+            : "Ungültige Eingabe";
+    } catch (error) {
+        output.textContent = "Fehler bei der Umrechnung";
+        console.error(error);
+    }
+}
 
-globals.holeEssen = holeEssen;
-globals.loescheEssen = loescheEssen;
+// Function to format time
+function displayTime() {
+    const fiveMinutesAgo = Date.now() - ms("5 minutes");
+    const formattedTime = `vor ${ms(Date.now() - fiveMinutesAgo)}`;
 
-msGlobals.holeZeit = holeZeit;
-msGlobals.loescheZeit = loescheZeit;
+    const timeDisplay = document.getElementById("time-display");
+    if (timeDisplay) {
+        timeDisplay.textContent = formattedTime;
+    }
+}
 
 document.getElementById("hole-essen")?.addEventListener("click", holeEssen);
-document.getElementById("loesche-essen")?.addEventListener(
-    "click",
-    loescheEssen,
-);
+document.getElementById("loesche-essen")?.addEventListener("click", loescheEssen);
+document.getElementById("hole-zeit")?.addEventListener("click", handleMsConversion);
 
-document.getElementById("hole-zeit")?.addEventListener("click", holeZeit);
-document.getElementById("loesche-zeit")?.addEventListener(
-    "click",
-    loescheZeit,
-);
+displayTime();

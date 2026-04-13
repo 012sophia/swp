@@ -8,8 +8,8 @@
   <link rel="stylesheet"
         href="style.css">
   <script type="module"
-          src="script.ts"></script>
-  <title>essen</title>
+          src="script.js"></script>
+  <title>MS Converter</title>
 </head>
 
 <body>
@@ -25,18 +25,11 @@
     </thead>
     <tbody id="tabelle"></tbody>
   </table>
-  <input type="zeit" id="zeit-input" placeholder="Schreibe Zeit">
+
+  <h1>MS Converter</h1>
+  <input type="text" id="zeit-input" placeholder="Schreibe Zeit">
   <button id="hole-zeit">Hole Zeit</button>
-  <button id="loesche-zeit">Lösche Zeit</button>
-  <table>
-    <thead>
-      <tr>
-        <th>zeit</th>
-        <th>in ms</th>
-      </tr>
-    </thead>
-    <tbody id="tabelle2"></tbody>
-  </table>
+  <p id="zeit-output">Zeit wird hier angezeigt...</p>
 </body>
 
 </html>
