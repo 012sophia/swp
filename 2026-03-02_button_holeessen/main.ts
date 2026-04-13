@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { serveStatic } from "hono/deno";
 import { Database } from "@db/sqlite";
+import { _holeEssen } from "./static/script.js";
 
 const app = new Hono();
 const db = new Database("lieblingsessen.db");
