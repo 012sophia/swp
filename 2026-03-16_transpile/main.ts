@@ -16,12 +16,11 @@ app.get("/:path{.+\\.ts$}", async (c) => {
             entrypoints: [filePath],
             platform: "browser",
             minify: !isDev,
-            write: false, // Don't write to disk, keep in memory
+            write: false, 
             format: "esm",
         });
         if (!result.success) throw new Error("Bundling failed");
 
-        // Extract the bundled JS content from the in-memory result.
         const jsFile = result.outputFiles?.find((f) => typeof f.text === "function");
         const js = jsFile?.text();
 

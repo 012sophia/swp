@@ -1,38 +1,16 @@
-import { holeEssen, loescheEssen } from "./essen_und_zeit.ts";
-import ms from "ms";
+import { holeEssen, loescheEssen } from "./essen.ts";
+import { handleMsConversion } from "./zeit.ts";
 
-function handleMsConversion() {
-    const input = (document.getElementById("zeit-input") as HTMLInputElement).value;
-    const output = document.getElementById("zeit-output");
+type EssenGlobals = typeof globalThis & {
+    holeEssen: typeof holeEssen;
+    loescheEssen: typeof loescheEssen;
+};
 
-    if (!output) {
-        console.error("Output element not found");
-        return;
-    }
+const globals = globalThis as EssenGlobals;
 
-    try {
-        const converted = ms(input);
-        output.textContent = converted
-            ? `${input} entspricht ${converted} ms`
-            : "Ungültige Eingabe";
-    } catch (error) {
-        output.textContent = "Fehler bei der Umrechnung";
-        console.error(error);
-    }
-}
-
-function displayTime() {
-    const fiveMinutesAgo = Date.now() - ms("5 minutes");
-    const formattedTime = `vor ${ms(Date.now() - fiveMinutesAgo)}`;
-
-    const timeDisplay = document.getElementById("time-display");
-    if (timeDisplay) {
-        timeDisplay.textContent = formattedTime;
-    }
-}
+globals.holeEssen = holeEssen;
+globals.loescheEssen = loescheEssen;
 
 document.getElementById("hole-essen")?.addEventListener("click", holeEssen);
 document.getElementById("loesche-essen")?.addEventListener("click", loescheEssen);
 document.getElementById("hole-zeit")?.addEventListener("click", handleMsConversion);
-
-displayTime();
