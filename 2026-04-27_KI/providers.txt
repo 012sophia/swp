@@ -1,0 +1,30 @@
+[90mT[39m  Credentials [90m~\.local\share\opencode\auth.json
+[90m|[39m
+[34m•[39m  GitHub Copilot [90moauth
+[90m|[39m
+[34m•[39m  Google [90mapi
+[90m|[39m
+[34m•[39m  Nvidia [90mapi
+[90m|[39m
+[34m•[39m  OpenCode Zen [90mapi
+[90m|[39m
+[90m—[39m  4 credentials
+
+opencode providers list - Zeitmessung
+==================================
+
+Datum: 2026-04-27
+Anfrage: "Was ist 2+2?"
+
+Ergebnisse:
+------------
+| Provider      | Antwortzeit |
+|---------------|-------------|
+| GitHub Copilot | 1.96 s      |
+| Google        | 1.85 s      |
+| Nvidia        | 1.82 s      |
+| OpenCode Zen  | 1.96 s      |
+
+Alle 4 Provider haben geantwortet.
+Schnellster: Nvidia (1.82s)
+Langsamste: GitHub Copilot + OpenCode Zen (1.96s)
